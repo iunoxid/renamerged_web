@@ -1,0 +1,17 @@
+/home/alisa/my-project/Renamerged_js/production/node_modules/adm-zip/util/errors.js:56
+        return new Error('ADM-ZIP: ' + message);
+               ^
+
+Error: ADM-ZIP: Invalid or unsupported zip format. No END header found
+    at Object.INVALID_FORMAT (/home/alisa/my-project/Renamerged_js/production/node_modules/adm-zip/util/errors.js:56:16)
+    at readMainHeader (/home/alisa/my-project/Renamerged_js/production/node_modules/adm-zip/zipFile.js:123:49)
+    at new module.exports (/home/alisa/my-project/Renamerged_js/production/node_modules/adm-zip/zipFile.js:21:9)
+    at new module.exports (/home/alisa/my-project/Renamerged_js/production/node_modules/adm-zip/adm-zip.js:67:18)
+    at processPDFs (/home/alisa/my-project/Renamerged_js/production/utils/pdfProcessor.js:27:17)
+    at /home/alisa/my-project/Renamerged_js/production/server.js:51:37
+    at done (/home/alisa/my-project/Renamerged_js/production/node_modules/multer/lib/make-middleware.js:45:7)
+    at indicateDone (/home/alisa/my-project/Renamerged_js/production/node_modules/multer/lib/make-middleware.js:49:68)
+    at /home/alisa/my-project/Renamerged_js/production/node_modules/multer/lib/make-middleware.js:155:11
+    at WriteStream.<anonymous> (/home/alisa/my-project/Renamerged_js/production/node_modules/multer/storage/disk.js:43:9)
+
+Node.js v23.8.0
