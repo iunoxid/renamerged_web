@@ -17,14 +17,19 @@ Aplikasi web untuk memproses dan mengelompokkan file PDF faktur pajak berdasarka
 
 ### 🎨 User Interface
 - **Upload & Extract**: Upload file ZIP berisi PDF dengan drag & drop interface
+- **File Detection**: Otomatis mendeteksi dan menampilkan jumlah PDF dalam ZIP
 - **Real-time Progress**: Monitor progress dan log pemrosesan secara real-time via WebSocket
-- **Dark/Light Theme**: Toggle antara mode gelap dan terang
+- **Result Summary**: Tampilan hasil akhir dengan jumlah file berhasil/gagal diproses
+- **External Link Safety**: Link eksternal otomatis membuka tab baru untuk menjaga progress
+- **Dark/Light Theme**: Toggle antara mode gelap dan terang dengan UI yang nyaman
 - **Responsive Design**: Layout yang responsif untuk desktop dan mobile
 - **Modular CSS**: Arsitektur CSS yang termodularisasi untuk maintainability
 
 ### ⚙️ Processing Features
 - **PDF Analysis**: Ekstrak metadata (IDTKU, partner, tanggal, referensi, nomor invoice)
+- **File Detection**: Otomatis menghitung dan menampilkan jumlah PDF yang terdeteksi
 - **Intelligent Grouping**: Kelompokkan PDF berdasarkan IDTKU dan nama partner
+- **Success/Error Tracking**: Laporan detail file yang berhasil dan gagal diproses
 - **Auto Cleanup**: Pembersihan file otomatis untuk mengoptimalkan storage
 - **Progress Tracking**: Real-time progress dengan estimasi waktu selesai
 
@@ -272,26 +277,32 @@ Response: ZIP file with processed PDFs
 
 ### Mode "Rename Only"
 1. **Upload**: User upload ZIP berisi PDF faktur pajak
-2. **Extract**: Server ekstrak ZIP ke folder temporary dengan UUID unik
-3. **Analyze**: PDF dianalisis untuk ekstrak metadata (IDTKU, partner, tanggal, referensi, invoice)
-4. **Format**: Nama file diganti sesuai format yang dikonfigurasi user
-5. **Package**: PDF dengan nama baru dikemas dalam ZIP untuk download
-6. **Cleanup**: File temporary dihapus otomatis
+2. **Detection**: Sistem mendeteksi dan menampilkan jumlah PDF dalam ZIP
+3. **Extract**: Server ekstrak ZIP ke folder temporary dengan UUID unik
+4. **Analyze**: PDF dianalisis untuk ekstrak metadata (IDTKU, partner, tanggal, referensi, invoice)
+5. **Format**: Nama file diganti sesuai format yang dikonfigurasi user
+6. **Package**: PDF dengan nama baru dikemas dalam ZIP untuk download
+7. **Results**: Tampilkan summary hasil (berhasil/gagal) di log box
+8. **Cleanup**: File temporary dihapus otomatis
 
 ### Mode "Rename + Merge"
 1. **Upload**: User upload ZIP berisi PDF faktur pajak
-2. **Extract**: Server ekstrak ZIP ke folder temporary dengan UUID unik
-3. **Analyze**: PDF dianalisis untuk ekstrak metadata (IDTKU, partner, tanggal, referensi, invoice)
-4. **Group**: PDF dikelompokkan berdasarkan IDTKU dan partner name
-5. **Rename**: File diganti nama sesuai format default
-6. **Merge**: PDF dengan partner sama digabung menjadi satu file per grup
-7. **Package**: Hasil pengelompokan dikemas dalam ZIP baru untuk download
-8. **Cleanup**: File temporary dihapus otomatis
+2. **Detection**: Sistem mendeteksi dan menampilkan jumlah PDF dalam ZIP
+3. **Extract**: Server ekstrak ZIP ke folder temporary dengan UUID unik
+4. **Analyze**: PDF dianalisis untuk ekstrak metadata (IDTKU, partner, tanggal, referensi, invoice)
+5. **Group**: PDF dikelompokkan berdasarkan IDTKU dan partner name
+6. **Rename**: File diganti nama sesuai format default
+7. **Merge**: PDF dengan partner sama digabung menjadi satu file per grup
+8. **Package**: Hasil pengelompokan dikemas dalam ZIP baru untuk download
+9. **Results**: Tampilkan summary hasil (berhasil/gagal) di log box
+10. **Cleanup**: File temporary dihapus otomatis
 
 ### Real-time Communication
 - **WebSocket**: Progress dan log dikirim secara real-time ke frontend
+- **File Detection**: Notifikasi otomatis jumlah PDF yang terdeteksi dalam ZIP
 - **Progress Tracking**: Persentase kemajuan dan estimasi waktu selesai
-- **Error Handling**: Notifikasi error dan penanganan yang robust
+- **Result Summary**: Laporan akhir dengan detail file berhasil/gagal
+- **Error Handling**: Notifikasi error individual per file dan penanganan yang robust
 
 ## 🧪 Testing
 
@@ -434,6 +445,15 @@ ISC License - lihat file LICENSE untuk detail lengkap.
 - Instagram: [@syahbandi.a](https://www.instagram.com/syahbandi.a)
 - Facebook: [ssyah.bandi](https://www.facebook.com/ssyah.bandi)
 - Website: [mikhailovna.com](https://mikhailovna.com)
+
+## 🆕 Latest Updates
+
+### Version 2.0.0 Features:
+- ✅ **File Detection**: Otomatis mendeteksi dan menampilkan jumlah PDF dalam ZIP
+- ✅ **Result Summary**: Tampilan hasil akhir dengan jumlah file berhasil/gagal
+- ✅ **External Link Safety**: Link eksternal otomatis membuka tab baru
+- ✅ **UI Improvements**: Warna border yang lebih soft di light mode
+- ✅ **Enhanced Logging**: Log yang lebih detail untuk setiap tahap proses
 
 ## 💝 Support
 
