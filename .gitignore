@@ -57,8 +57,11 @@ pids/
 # Environment variables (NEVER commit these)
 .env
 .env.*
+!.env.example
 backend/.env
 frontend/.env
+!backend/.env.example
+!frontend/.env.example
 
 # Uploaded and processed files (user-generated content)
 /uploads/
