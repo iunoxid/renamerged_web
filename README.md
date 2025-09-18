@@ -37,43 +37,101 @@ Aplikasi web untuk memproses dan mengelompokkan file PDF faktur pajak berdasarka
 
 ```
 renamerged_web/
-├── backend/                    # Backend API
-│   ├── src/
-│   │   ├── app.js             # Main application
-│   │   ├── config/            # Konfigurasi
-│   │   ├── controllers/       # Request handlers
-│   │   ├── middleware/        # Express middleware
-│   │   ├── routes/           # API routes
-│   │   ├── services/         # Business logic
-│   │   └── utils/            # Utility functions
-│   ├── uploads/              # File storage
-│   ├── package.json          # Backend dependencies
-│   └── server.js            # Entry point
-├── frontend/                  # Frontend client
-│   ├── public/               # Static files
-│   │   ├── css/             # Modular CSS files
-│   │   │   ├── main.css     # Main CSS entry point
-│   │   │   ├── base.css     # Base layout & containers
-│   │   │   ├── theme.css    # Dark/light theme & footer
-│   │   │   ├── components.css # UI components (buttons, progress, log)
-│   │   │   ├── forms.css    # Form elements (radio, checkbox, select)
-│   │   │   └── drag-drop.css # Drag & drop functionality
-│   │   ├── index.html       # Main HTML file
-│   │   └── src/             # Frontend modules
-│   │       ├── components/  # UI components
-│   │       │   ├── file.upload.js      # File upload handling
-│   │       │   ├── progress.tracker.js # Progress tracking
-│   │       │   ├── settings.manager.js # Settings & filename format
-│   │       │   ├── socket.manager.js   # WebSocket communication
-│   │       │   └── theme.manager.js    # Dark/light theme toggle
-│   │       ├── config/      # Frontend config
-│   │       │   └── app.config.js       # App configuration
-│   │       ├── utils/       # Frontend utilities
-│   │       │   └── dom.utils.js        # DOM manipulation utilities
-│   │       └── app.js       # Main application entry
-│   └── package.json         # Frontend dependencies
-├── package.json             # Root package.json
-└── README.md               # Dokumentasi
+├── .env.example
+├── .gitignore
+├── docker-compose.dev.yml
+├── docker-compose.yml
+├── package-lock.json
+├── package.json
+├── README.md
+├── backend/
+│   ├── .env.example
+│   ├── Dockerfile
+│   ├── Dockerfile.dev
+│   ├── package.json
+│   ├── server.js
+│   └── src/
+│       ├── app.js
+│       ├── config/
+│       │   └── server.config.js
+│       ├── controllers/
+│       │   └── upload.controller.js
+│       ├── middleware/
+│       │   ├── error.middleware.js
+│       │   └── upload.middleware.js
+│       ├── routes/
+│       │   └── upload.routes.js
+│       ├── services/
+│       │   ├── pdf.merge.service.js
+│       │   ├── pdf.rename.service.js
+│       │   └── pdf.service.js
+│       └── utils/
+│           ├── cleanup.manager.js
+│           ├── file.manager.js
+│           ├── pdf.extractor.js
+│           └── pdf.merger.js
+├── dev/
+│   └── pdf_processor_rename.py
+├── frontend/
+│   ├── .env.example
+│   ├── Dockerfile
+│   ├── Dockerfile.dev
+│   ├── nginx.conf
+│   ├── package.json
+│   ├── public/
+│   │   ├── assets/
+│   │   │   └── images/
+│   │   │       └── qris.png
+│   │   ├── css/
+│   │   │   ├── base.css
+│   │   │   ├── cara-pakai.css
+│   │   │   ├── components.css
+│   │   │   ├── contact.css
+│   │   │   ├── donasi.css
+│   │   │   ├── drag-drop.css
+│   │   │   ├── forms.css
+│   │   │   ├── main.css
+│   │   │   ├── sidebar.css
+│   │   │   ├── terms.css
+│   │   │   ├── theme.css
+│   │   │   └── toc-modal.css
+│   │   ├── src/
+│   │   │   ├── app.js
+│   │   │   ├── components/
+│   │   │   │   ├── file.upload.js
+│   │   │   │   ├── progress.tracker.js
+│   │   │   │   ├── settings.manager.js
+│   │   │   │   ├── sidebar.manager.js
+│   │   │   │   ├── socket.manager.js
+│   │   │   │   ├── theme.manager.js
+│   │   │   │   └── toc.manager.js
+│   │   │   ├── config/
+│   │   │   │   └── app.config.js
+│   │   │   └── utils/
+│   │   │       └── dom.utils.js
+│   │   ├── cara-pakai.html
+│   │   ├── donasi.html
+│   │   ├── favicon.ico
+│   │   ├── hubungi-dev.html
+│   │   ├── index.html
+│   │   └── terms.html
+│   ├── scripts/
+│   │   └── update-env.js
+│   └── src/
+│       ├── app.js
+│       ├── components/
+│       │   ├── file.upload.js
+│       │   ├── progress.tracker.js
+│       │   ├── socket.manager.js
+│       │   └── theme.manager.js
+│       ├── config/
+│       │   └── app.config.js
+│       └── utils/
+│           └── dom.utils.js
+└── scripts/
+    ├── dev.sh
+    ├── prod.sh
+    └── setup-env.js
 ```
 
 ## 🛠 Instalasi
