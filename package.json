@@ -1,21 +1,34 @@
 {
-  "name": "testing",
+  "name": "renamerged-monorepo",
   "version": "1.0.0",
-  "main": "FileUtils.js",
+  "description": "PDF processing application with separated frontend and backend",
+  "main": "backend/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "setup:env": "node scripts/setup-env.js",
+    "start": "npm run start:backend",
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "cd frontend && npm start",
+    "dev": "npm run setup:env && concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "npm run setup:env && cd backend && npm run dev",
+    "dev:frontend": "npm run setup:env && cd frontend && npm run dev",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "build": "npm run build:frontend",
+    "build:frontend": "cd frontend && npm run build",
+    "test": "npm run test:backend && npm run test:frontend",
+    "test:backend": "cd backend && npm test",
+    "test:frontend": "cd frontend && npm test"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["pdf", "processing", "fullstack", "file-management"],
+  "author": "Syahbandi",
   "license": "ISC",
-  "dependencies": {
-    "adm-zip": "^0.5.16",
-    "cors": "^2.8.5",
-    "express": "^4.21.2",
-    "multer": "^1.4.5-lts.1",
-    "pdf-lib": "^1.17.1",
-    "pdf-parse": "^1.1.1",
-    "socket.io": "^4.8.1"
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   },
-  "description": ""
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  }
 }

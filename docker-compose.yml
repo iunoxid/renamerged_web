@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: renamerged-backend
+    restart: unless-stopped
+    ports:
+      - "5001:5001"
+    environment:
+      - NODE_ENV=production
+      - PORT=5001
+      - CORS_ORIGIN=http://localhost:3000
+    volumes:
+      - backend_uploads:/app/uploads
+      - ./backend/.env:/app/.env:ro
+    networks:
+      - renamerged-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:5001/health"]
+      timeout: 10s
+      interval: 30s
+      retries: 5
+      start_period: 30s
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: renamerged-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - renamerged-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/health"]
+      timeout: 10s
+      interval: 30s
+      retries: 5
+      start_period: 30s
+
+volumes:
+  backend_uploads:
+    driver: local
+
+networks:
+  renamerged-network:
+    driver: bridge

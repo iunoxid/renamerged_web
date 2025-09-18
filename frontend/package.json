@@ -1,0 +1,27 @@
+{
+  "name": "renamerged-frontend",
+  "version": "1.0.0",
+  "description": "Frontend client for PDF processing application",
+  "main": "public/index.html",
+  "scripts": {
+    "start": "npm run env:update && serve public -s",
+    "start:prod": "npm run env:update && serve public -s -l 3000",
+    "dev": "npm run env:update && live-server public --port=3000 --open=/",
+    "dev:hot": "npm run env:update && live-server public --port=3000 --open=/ --watch=src,public",
+    "dev:auto": "npm run env:update && live-server public --port=${FRONTEND_PORT:-3000} --open=/",
+    "build": "npm run env:update",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "setup": "cp .env.example .env",
+    "env:update": "node scripts/update-env.js"
+  },
+  "keywords": ["frontend", "pdf", "upload", "client"],
+  "author": "Syahbandi",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
