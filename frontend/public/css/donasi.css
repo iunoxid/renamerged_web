@@ -1,0 +1,663 @@
+/* Donation Page Styling */
+
+/* Donation Intro */
+.donasi-intro {
+    margin-bottom: 50px;
+}
+
+.intro-card {
+    background: linear-gradient(135deg, #e8f5e8, #f0f8ff);
+    border: 2px solid #28a745;
+    border-radius: 16px;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(40, 167, 69, 0.15);
+}
+
+body.dark-mode .intro-card {
+    background: linear-gradient(135deg, #1b5e20, #1a237e);
+    border-color: #4caf50;
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.15);
+}
+
+.intro-card h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #28a745;
+    margin: 0 0 20px 0;
+}
+
+body.dark-mode .intro-card h3 {
+    color: #4caf50;
+}
+
+.intro-card p {
+    font-size: 16px;
+    color: #495057;
+    margin: 0 0 20px 0;
+    line-height: 1.6;
+}
+
+body.dark-mode .intro-card p {
+    color: #e0e0e0;
+}
+
+.benefit-list {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+    padding-left: 0;
+    list-style: none;
+}
+
+.benefit-list li {
+    background: rgba(255, 255, 255, 0.8);
+    margin-bottom: 10px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border-left: 4px solid #28a745;
+    font-size: 14px;
+    color: #495057;
+    transition: all 0.3s ease;
+}
+
+.benefit-list li:hover {
+    transform: translateX(5px);
+    background: rgba(255, 255, 255, 1);
+}
+
+body.dark-mode .benefit-list li {
+    background: rgba(42, 42, 42, 0.8);
+    border-left-color: #4caf50;
+    color: #e0e0e0;
+}
+
+body.dark-mode .benefit-list li:hover {
+    background: rgba(42, 42, 42, 1);
+}
+
+/* Donation Methods */
+.donation-methods {
+    margin-bottom: 50px;
+}
+
+.donation-methods h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 30px 0;
+    text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #2575fc;
+    display: inline-block;
+    width: 100%;
+}
+
+body.dark-mode .donation-methods h3 {
+    color: #ecf0f1;
+    border-bottom-color: #64b5f6;
+}
+
+.method-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.donation-card {
+    background: #ffffff;
+    border: 2px solid #e9ecef;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.donation-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.donation-card.featured {
+    border-color: #ffc107;
+    box-shadow: 0 8px 30px rgba(255, 193, 7, 0.25);
+}
+
+.donation-card.featured:hover {
+    box-shadow: 0 15px 40px rgba(255, 193, 7, 0.35);
+}
+
+body.dark-mode .donation-card {
+    background: #2a2a2a;
+    border-color: #4a4a4a;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .donation-card:hover {
+    box-shadow: 0 12px 35px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .donation-card.featured {
+    border-color: #ff9800;
+    box-shadow: 0 8px 30px rgba(255, 152, 0, 0.25);
+}
+
+.card-header {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 25px;
+    text-align: center;
+    position: relative;
+}
+
+.donation-card.featured .card-header {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+}
+
+body.dark-mode .card-header {
+    background: linear-gradient(135deg, #3a3a3a, #2a2a2a);
+}
+
+body.dark-mode .donation-card.featured .card-header {
+    background: linear-gradient(135deg, #3e2723, #5d4037);
+}
+
+.method-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.card-header h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 10px 0;
+}
+
+body.dark-mode .card-header h4 {
+    color: #ecf0f1;
+}
+
+.badge {
+    background: #ffc107;
+    color: #856404;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+body.dark-mode .badge {
+    background: #ff9800;
+    color: #fff;
+}
+
+.card-body {
+    padding: 25px;
+}
+
+.card-body p {
+    font-size: 14px;
+    color: #6c757d;
+    margin: 0 0 20px 0;
+    line-height: 1.5;
+}
+
+body.dark-mode .card-body p {
+    color: #bdc3c7;
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.feature {
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+body.dark-mode .feature {
+    background: #1a237e;
+    color: #64b5f6;
+}
+
+/* QRIS Specific */
+.qris-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.qris-code {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+    padding: 10px;
+    background: white;
+}
+
+body.dark-mode .qris-code {
+    border-color: #4a4a4a;
+}
+
+/* Bank Info */
+.bank-info {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+body.dark-mode .bank-info {
+    background: #3a3a3a;
+}
+
+.bank-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.bank-item strong {
+    color: #2575fc;
+    font-size: 14px;
+}
+
+body.dark-mode .bank-item strong {
+    color: #64b5f6;
+}
+
+.account-number {
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    font-weight: 700;
+    color: #28a745;
+    background: #e8f5e8;
+    padding: 8px 12px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+
+body.dark-mode .account-number {
+    color: #4caf50;
+    background: #1b5e20;
+}
+
+.account-name {
+    font-size: 14px;
+    color: #6c757d;
+    font-style: italic;
+}
+
+body.dark-mode .account-name {
+    color: #bdc3c7;
+}
+
+.card-footer {
+    padding: 20px 25px;
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+}
+
+body.dark-mode .card-footer {
+    background: #1a1a1a;
+    border-top-color: #4a4a4a;
+}
+
+.donate-btn {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.donate-btn.primary {
+    background: #28a745;
+    color: white;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.donate-btn.primary:hover {
+    background: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+}
+
+body.dark-mode .donate-btn.primary {
+    background: #4caf50;
+}
+
+body.dark-mode .donate-btn.primary:hover {
+    background: #45a049;
+}
+
+.copy-btn {
+    background: #17a2b8;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.copy-btn:hover {
+    background: #138496;
+    transform: translateY(-1px);
+}
+
+body.dark-mode .copy-btn {
+    background: #26c6da;
+    color: #121212;
+}
+
+body.dark-mode .copy-btn:hover {
+    background: #00acc1;
+}
+
+/* Donation Tiers */
+.donation-tiers {
+    margin-bottom: 50px;
+}
+
+.donation-tiers h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 30px 0;
+    text-align: center;
+}
+
+body.dark-mode .donation-tiers h3 {
+    color: #ecf0f1;
+}
+
+.tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.tier-card {
+    background: #ffffff;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tier-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #28a745, #2575fc);
+}
+
+.tier-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.tier-card.standard::before {
+    background: linear-gradient(90deg, #ffc107, #ff9800);
+}
+
+.tier-card.premium::before {
+    background: linear-gradient(90deg, #6f42c1, #e83e8c);
+}
+
+.tier-card.ultimate::before {
+    background: linear-gradient(90deg, #fd7e14, #dc3545);
+}
+
+body.dark-mode .tier-card {
+    background: #2a2a2a;
+    border-color: #4a4a4a;
+}
+
+.tier-card h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 10px 0;
+}
+
+body.dark-mode .tier-card h4 {
+    color: #ecf0f1;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: 700;
+    color: #28a745;
+    margin: 10px 0;
+}
+
+body.dark-mode .price {
+    color: #4caf50;
+}
+
+.tier-card p {
+    font-size: 14px;
+    color: #6c757d;
+    margin: 0;
+    line-height: 1.4;
+}
+
+body.dark-mode .tier-card p {
+    color: #bdc3c7;
+}
+
+/* Recognition Section */
+.recognition-section {
+    background: linear-gradient(135deg, #f8f9fa, #e3f2fd);
+    border-radius: 16px;
+    padding: 40px;
+    margin-bottom: 50px;
+    text-align: center;
+    border: 2px solid #2575fc;
+}
+
+body.dark-mode .recognition-section {
+    background: linear-gradient(135deg, #2a2a2a, #1a237e);
+    border-color: #64b5f6;
+}
+
+.recognition-section h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2575fc;
+    margin: 0 0 25px 0;
+}
+
+body.dark-mode .recognition-section h3 {
+    color: #64b5f6;
+}
+
+.supporter-note p {
+    font-size: 16px;
+    color: #495057;
+    margin: 0 0 30px 0;
+    line-height: 1.6;
+}
+
+body.dark-mode .supporter-note p {
+    color: #e0e0e0;
+}
+
+.supporter-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 25px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #dee2e6;
+}
+
+body.dark-mode .stat-item {
+    background: rgba(42, 42, 42, 0.8);
+    border-color: #4a4a4a;
+}
+
+.stat-item strong {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    color: #2575fc;
+    margin-bottom: 5px;
+}
+
+body.dark-mode .stat-item strong {
+    color: #64b5f6;
+}
+
+.stat-item span {
+    font-size: 12px;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+body.dark-mode .stat-item span {
+    color: #bdc3c7;
+}
+
+/* FAQ Section */
+.donasi-faq {
+    margin-bottom: 40px;
+}
+
+.donasi-faq h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 30px 0;
+    text-align: center;
+}
+
+body.dark-mode .donasi-faq h3 {
+    color: #ecf0f1;
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.faq-item {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    padding: 25px;
+    border-left: 5px solid #17a2b8;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: #17a2b8;
+    box-shadow: 0 4px 15px rgba(23, 162, 184, 0.15);
+    transform: translateX(5px);
+}
+
+body.dark-mode .faq-item {
+    background: #2a2a2a;
+    border-color: #4a4a4a;
+    border-left-color: #26c6da;
+}
+
+body.dark-mode .faq-item:hover {
+    border-color: #26c6da;
+    box-shadow: 0 4px 15px rgba(38, 198, 218, 0.15);
+}
+
+.faq-item h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #17a2b8;
+    margin: 0 0 10px 0;
+}
+
+body.dark-mode .faq-item h4 {
+    color: #26c6da;
+}
+
+.faq-item p {
+    font-size: 14px;
+    color: #495057;
+    margin: 0;
+    line-height: 1.6;
+}
+
+body.dark-mode .faq-item p {
+    color: #bdc3c7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .back-button {
+        top: 60px;
+        left: 10px;
+    }
+
+    .method-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tiers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .supporter-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .intro-card {
+        padding: 25px;
+    }
+
+    .benefit-list {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .tiers-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .recognition-section {
+        padding: 25px;
+    }
+}

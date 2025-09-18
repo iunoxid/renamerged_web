@@ -1,0 +1,421 @@
+/* Professional Cara Pakai Page Styling */
+
+/* Page Title */
+.page-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 40px;
+    border-bottom: 3px solid #2575fc;
+    padding-bottom: 15px;
+}
+
+body.dark-mode .page-title {
+    color: #ecf0f1;
+    border-bottom-color: #64b5f6;
+}
+
+/* Guide Sections */
+.guide-section {
+    margin-bottom: 50px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e9ecef;
+}
+
+body.dark-mode .guide-section {
+    background: #2a2a2a;
+    border-color: #3a3a3a;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+}
+
+.guide-section h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2575fc;
+    margin-bottom: 25px;
+    padding-left: 15px;
+    border-left: 4px solid #2575fc;
+}
+
+body.dark-mode .guide-section h2 {
+    color: #64b5f6;
+    border-left-color: #64b5f6;
+}
+
+/* Mode Cards */
+.mode-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.mode-card {
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 25px;
+    transition: all 0.3s ease;
+}
+
+.mode-card:hover {
+    border-color: #2575fc;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(37, 117, 252, 0.15);
+}
+
+body.dark-mode .mode-card {
+    background: #3a3a3a;
+    border-color: #4a4a4a;
+}
+
+body.dark-mode .mode-card:hover {
+    border-color: #64b5f6;
+    box-shadow: 0 8px 25px rgba(100, 181, 246, 0.15);
+}
+
+.mode-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+body.dark-mode .mode-card h3 {
+    color: #ecf0f1;
+}
+
+.mode-card p {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+body.dark-mode .mode-card p {
+    color: #bdc3c7;
+}
+
+.mode-card ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.mode-card li {
+    font-size: 14px;
+    color: #495057;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+body.dark-mode .mode-card li {
+    color: #95a5a6;
+}
+
+/* Steps Container */
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 5px solid #2575fc;
+    transition: all 0.3s ease;
+}
+
+.step:hover {
+    background: #e3f2fd;
+    transform: translateX(10px);
+}
+
+body.dark-mode .step {
+    background: #3a3a3a;
+    border-left-color: #64b5f6;
+}
+
+body.dark-mode .step:hover {
+    background: #2c5282;
+}
+
+.step-number {
+    background: #2575fc;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+body.dark-mode .step-number {
+    background: #64b5f6;
+    color: #121212;
+}
+
+.step-content h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+body.dark-mode .step-content h3 {
+    color: #ecf0f1;
+}
+
+.step-content p {
+    font-size: 14px;
+    color: #6c757d;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+body.dark-mode .step-content p {
+    color: #bdc3c7;
+}
+
+.step-content ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.step-content li {
+    font-size: 14px;
+    color: #495057;
+    margin-bottom: 5px;
+    line-height: 1.5;
+}
+
+body.dark-mode .step-content li {
+    color: #95a5a6;
+}
+
+.note {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 6px;
+    padding: 10px 15px;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #856404;
+}
+
+body.dark-mode .note {
+    background: #3e2723;
+    border-color: #5d4037;
+    color: #ffcc02;
+}
+
+/* Format Guide */
+.format-guide h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+body.dark-mode .format-guide h3 {
+    color: #ecf0f1;
+}
+
+.component-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.component-item {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+body.dark-mode .component-item {
+    background: #3a3a3a;
+    border-color: #4a4a4a;
+}
+
+.component-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: #2575fc;
+}
+
+body.dark-mode .component-name {
+    color: #64b5f6;
+}
+
+.component-desc {
+    font-size: 13px;
+    color: #6c757d;
+}
+
+body.dark-mode .component-desc {
+    color: #bdc3c7;
+}
+
+/* Tips Grid */
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.tip-card {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 25px;
+    transition: all 0.3s ease;
+}
+
+.tip-card:hover {
+    border-color: #28a745;
+    box-shadow: 0 8px 25px rgba(40, 167, 69, 0.15);
+}
+
+body.dark-mode .tip-card {
+    background: #3a3a3a;
+    border-color: #4a4a4a;
+}
+
+body.dark-mode .tip-card:hover {
+    border-color: #4caf50;
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.15);
+}
+
+.tip-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #28a745;
+    margin-bottom: 15px;
+}
+
+body.dark-mode .tip-card h3 {
+    color: #4caf50;
+}
+
+.tip-card ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.tip-card li {
+    font-size: 14px;
+    color: #495057;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+body.dark-mode .tip-card li {
+    color: #95a5a6;
+}
+
+/* FAQ */
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.faq-item {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: #17a2b8;
+    box-shadow: 0 4px 15px rgba(23, 162, 184, 0.15);
+}
+
+body.dark-mode .faq-item {
+    background: #3a3a3a;
+    border-color: #4a4a4a;
+}
+
+body.dark-mode .faq-item:hover {
+    border-color: #26c6da;
+    box-shadow: 0 4px 15px rgba(38, 198, 218, 0.15);
+}
+
+.faq-item h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #17a2b8;
+    margin-bottom: 10px;
+}
+
+body.dark-mode .faq-item h3 {
+    color: #26c6da;
+}
+
+.faq-item p {
+    font-size: 14px;
+    color: #495057;
+    line-height: 1.6;
+    margin: 0;
+}
+
+body.dark-mode .faq-item p {
+    color: #95a5a6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .mode-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .component-list {
+        grid-template-columns: 1fr;
+    }
+
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .back-button {
+        top: 60px;
+        left: 10px;
+    }
+
+    .page-title {
+        font-size: 24px;
+    }
+
+    .guide-section {
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+
+    .step {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .step-number {
+        align-self: center;
+    }
+}

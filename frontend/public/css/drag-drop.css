@@ -1,0 +1,229 @@
+/* 🔄 Drag and Drop */
+.drag-container {
+    border: 2px dashed #dee2e6;
+    border-radius: 8px;
+    padding: 12px; /* Reduced padding */
+    background: #f8f9fa;
+    min-height: 160px; /* Reduced min-height */
+    margin-bottom: 15px; /* Reduced margin */
+}
+
+body.dark-mode .drag-container {
+    background: #2a2a2a;
+    border-color: #555;
+}
+
+.drag-item {
+    display: flex;
+    align-items: center;
+    padding: 8px; /* Reduced padding */
+    margin-bottom: 5px; /* Reduced margin */
+    background: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    cursor: move;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.drag-item:hover {
+    background: #f0f8ff;
+    border-color: #2575fc;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(37, 117, 252, 0.15);
+}
+
+.drag-item.dragging {
+    opacity: 0.5;
+    transform: rotate(5deg);
+    z-index: 1000;
+}
+
+body.dark-mode .drag-item {
+    background: #3a3a3a;
+    border-color: #555;
+    color: #e0e0e0;
+}
+
+body.dark-mode .drag-item:hover {
+    background: #4a4a4a;
+    border-color: #64b5f6;
+}
+
+.drag-handle {
+    font-size: 16px;
+    color: #999;
+    margin-right: 12px;
+    cursor: grab;
+}
+
+.drag-handle:active {
+    cursor: grabbing;
+}
+
+body.dark-mode .drag-handle {
+    color: #666;
+}
+
+.component-name {
+    font-weight: 500;
+    color: #333;
+    flex: 1;
+}
+
+body.dark-mode .component-name {
+    color: #e0e0e0;
+}
+
+/* 🌟 Dropzone */
+.dropzone {
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 40px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    background: #fafafa;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.dropzone:hover {
+    border-color: #2575fc;
+    background: #f0f8ff;
+}
+
+.dropzone.dragover {
+    border-color: #2575fc;
+    background: #e3f2fd;
+    transform: scale(1.02);
+}
+
+.dropzone p {
+    margin: 0;
+    color: #666;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.dropzone:hover p {
+    color: #2575fc;
+}
+
+body.dark-mode .dropzone {
+    background: #3a3a3a;
+    border-color: #666;
+}
+
+body.dark-mode .dropzone:hover {
+    border-color: #64b5f6;
+    background: #4a4a4a;
+}
+
+body.dark-mode .dropzone.dragover {
+    border-color: #64b5f6;
+    background: #505050;
+}
+
+body.dark-mode .dropzone p {
+    color: #ccc;
+}
+
+body.dark-mode .dropzone:hover p {
+    color: #ffffff;
+    opacity: 1;
+}
+
+/* 🏷️ Filename Format Section */
+.filename-format {
+    margin-top: 15px; /* Reduced margin */
+    padding: 15px; /* Added padding all around */
+    border: 2px solid #adb5bd; /* Softer border for light mode */
+    border-radius: 8px;
+    background: #f8f9fa;
+    transition: all 0.3s ease-in-out; /* Smooth transitions */
+    overflow: visible; /* Remove inner scroll - let main container handle scrolling */
+}
+
+body.dark-mode .filename-format {
+    background: #2a2a2a;
+    border-color: #555;
+}
+
+.filename-format h4 {
+    color: #2575fc;
+    margin-bottom: 15px;
+}
+
+body.dark-mode .filename-format h4 {
+    color: #64b5f6;
+}
+
+.component-selection {
+    margin-bottom: 15px; /* Reduced margin */
+    text-align: left;
+}
+
+.component-selection h5 {
+    margin-bottom: 8px; /* Reduced margin */
+    color: #2575fc;
+    font-size: 16px;
+}
+
+body.dark-mode .component-selection h5 {
+    color: #64b5f6;
+}
+
+.format-info {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+body.dark-mode .format-info {
+    color: #ccc;
+}
+
+/* 📋 Preview Container */
+.preview-container {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.preview-container h5 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #2575fc;
+    font-size: 16px;
+}
+
+.filename-preview {
+    background: #ffffff;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: #333;
+    word-break: break-all;
+    min-height: 20px;
+}
+
+body.dark-mode .preview-container {
+    background: #2a2a2a;
+    border-color: #555;
+}
+
+body.dark-mode .preview-container h5 {
+    color: #64b5f6;
+}
+
+body.dark-mode .filename-preview {
+    background: #3a3a3a;
+    border-color: #555;
+    color: #e0e0e0;
+}

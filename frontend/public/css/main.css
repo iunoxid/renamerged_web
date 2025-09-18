@@ -1,0 +1,128 @@
+/*
+ * 🎨 Renamerged - Main CSS File
+ * Modular CSS Architecture for better organization
+ */
+
+/* Import all CSS modules */
+@import url('base.css');
+@import url('theme.css');
+@import url('components.css');
+@import url('forms.css');
+@import url('drag-drop.css');
+@import url('sidebar.css');
+@import url('toc-modal.css');
+
+/* 🔧 Additional Utilities */
+.text-center {
+    text-align: center;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    display: block !important;
+}
+
+/* 🎯 Responsive Utilities */
+@media (max-width: 768px) {
+    .main-container {
+        width: 95%;
+        padding: 15px;
+        margin-top: 20px;
+    }
+
+    .content-layout {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .dark-mode-toggle {
+        top: 10px;
+        right: 10px;
+        padding: 8px 12px;
+    }
+
+    .app-title {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-container {
+        width: 98%;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    .app-title {
+        font-size: 20px;
+    }
+
+    #uploadButton {
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+}
+
+/* 🎨 Animation Utilities */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-in {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* 🔄 Loading States */
+.loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #2575fc;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

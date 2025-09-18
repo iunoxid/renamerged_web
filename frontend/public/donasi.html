@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donasi - Renamerged</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/donasi.css">
+</head>
+<body>
+    <!-- Dark Mode Switch -->
+    <div class="dark-mode-toggle">
+        <span id="lightText">Light</span>
+        <label class="switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider round"></span>
+        </label>
+        <span id="darkText">Dark</span>
+    </div>
+
+    <!-- Back Button -->
+    <div class="back-button">
+        <button id="backBtn" onclick="window.close(); window.location.href='index.html';">
+            ← Kembali
+        </button>
+    </div>
+
+    <div class="body-wrapper">
+        <div class="main-container" style="text-align: left; max-width: 1000px; margin-top: 60px;">
+            <!-- Header -->
+            <h2 class="app-title" style="text-align: center;">Dukung Pengembangan Renamerged</h2>
+
+            <div class="donasi-intro">
+                <div class="intro-card">
+                    <h3>Terima kasih atas dukungan Anda!</h3>
+                    <p>Renamerged adalah layanan gratis yang dikembangkan dengan dedikasi tinggi. Donasi Anda akan sangat membantu untuk:</p>
+                    <ul class="benefit-list">
+                        <li>🚀 Mengembangkan fitur-fitur baru yang lebih canggih</li>
+                        <li>⚡ Meningkatkan performa dan kecepatan server</li>
+                        <li>🔧 Maintenance rutin dan perbaikan bug</li>
+                        <li>📚 Dokumentasi dan tutorial yang lebih lengkap</li>
+                        <li>🌟 Menambah format file support (RAR, 7Z, dll)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Donation Methods -->
+            <div class="donation-methods">
+                <h3>Metode Donasi</h3>
+
+                <div class="method-grid" style="grid-template-columns: 1fr; max-width: 500px; margin: 0 auto;">
+                    <!-- QRIS -->
+                    <div class="donation-card featured">
+                        <div class="card-header">
+                            <div class="method-icon">📱</div>
+                            <h4>QRIS (Scan & Pay)</h4>
+                            <span class="badge">Utama</span>
+                        </div>
+                        <div class="card-body">
+                            <p>Scan QR Code dengan aplikasi e-wallet favorit Anda</p>
+                            <div class="qris-container">
+                                <img src="assets/images/qris.png" alt="QRIS Code" class="qris-code" id="qrisImage">
+                                <p class="qris-hint">Klik QR untuk memperbesar</p>
+                            </div>
+                            <div class="features">
+                                <span class="feature">✓ Semua E-Wallet</span>
+                                <span class="feature">✓ Instant Payment</span>
+                                <span class="feature">✓ Aman & Terpercaya</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- FAQ -->
+            <div class="donasi-faq">
+                <h3>FAQ Donasi</h3>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h4>Apakah ada minimum donasi?</h4>
+                        <p>Tidak ada minimum! Setiap nominal donasi sangat dihargai, mulai dari Rp 5.000 pun sangat membantu.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Apakah donasi akan mendapat fitur premium?</h4>
+                        <p>Renamerged akan tetap gratis untuk semua. Donasi adalah bentuk apresiasi untuk mendukung pengembangan.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Bagaimana dana donasi digunakan?</h4>
+                        <p>Dana akan digunakan untuk biaya server, development tools, dan pengembangan fitur baru.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- QRIS Modal -->
+    <div class="qris-modal-overlay" id="qrisModal">
+        <div class="qris-modal">
+            <button class="qris-modal-close" id="qrisModalClose">&times;</button>
+            <div class="qris-modal-content">
+                <h3>QRIS Code</h3>
+                <img src="assets/images/qris.png" alt="QRIS Code" class="qris-modal-image">
+                <p>Scan dengan aplikasi e-wallet favorit Anda</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Developed with ❤️ by iunox.id</p>
+
+        <p class="copyright">&copy; 2025 iunox.id. All Rights Reserved. Designed & Developed by iunox.id.</p>
+    </div>
+
+    <!-- Theme Manager -->
+    <script src="src/components/theme.manager.js"></script>
+
+    <!-- QRIS Modal Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const qrisImage = document.getElementById('qrisImage');
+            const qrisModal = document.getElementById('qrisModal');
+            const qrisModalClose = document.getElementById('qrisModalClose');
+
+            // Open modal when QR image is clicked
+            qrisImage.addEventListener('click', function() {
+                qrisModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+
+            // Close modal when close button is clicked
+            qrisModalClose.addEventListener('click', function() {
+                qrisModal.style.display = 'none';
+                document.body.style.overflow = '';
+            });
+
+            // Close modal when clicking outside the modal content
+            qrisModal.addEventListener('click', function(e) {
+                if (e.target === qrisModal) {
+                    qrisModal.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // Close modal with ESC key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && qrisModal.style.display === 'flex') {
+                    qrisModal.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

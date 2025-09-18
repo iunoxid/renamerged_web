@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renamerged</title>
+
+    <!-- Environment Configuration -->
+    <meta name="prod-api-url" content="">
+
+    <!-- Environment Configuration -->
+    <meta name="api-host" content="localhost">
+    <meta name="api-port" content="5004">
+    <meta name="api-url" content="http://localhost:5004">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+    <!-- 🍔 Hamburger Menu -->
+    <div class="hamburger-menu" id="hamburgerMenu">
+        <div class="hamburger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <span class="hamburger-title">Menu</span>
+    </div>
+
+    <!-- 🌙 Dark Mode Switch -->
+    <div class="dark-mode-toggle">
+        <span id="lightText">Light</span>
+        <label class="switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider round"></span>
+        </label>
+        <span id="darkText">Dark</span>
+    </div>
+
+    <!-- 📱 Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <button class="close-sidebar" id="closeSidebar">&times;</button>
+        </div>
+
+        <div class="sidebar-content">
+            <!-- Menu Items -->
+            <div class="menu-section">
+                <h4 class="menu-section-title">Panduan</h4>
+                <div class="menu-item" id="caraPakaiMenu">
+                    <span class="menu-text">Cara Pakai</span>
+                </div>
+                <div class="menu-item" id="termsMenu">
+                    <span class="menu-text">Terms & Conditions</span>
+                </div>
+            </div>
+
+            <div class="menu-section">
+                <h4 class="menu-section-title">Dukungan</h4>
+                <div class="menu-item" id="hubungiDevMenu">
+                    <span class="menu-text">Hubungi Developer</span>
+                </div>
+                <div class="menu-item" id="donasiMenu">
+                    <span class="menu-text">Donasi</span>
+                </div>
+                <div class="menu-item" id="laporBugMenu">
+                    <span class="menu-text">Lapor Bug</span>
+                </div>
+            </div>
+
+            <div class="menu-section">
+                <h4 class="menu-section-title">Informasi</h4>
+                <div class="menu-item" id="aboutMenu">
+                    <span class="menu-text">Tentang Renamerged</span>
+                </div>
+                <div class="menu-item" id="changelogMenu">
+                    <span class="menu-text">Changelog</span>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Terms & Conditions Modal -->
+    <div class="toc-modal-overlay" id="tocModalOverlay">
+        <div class="toc-modal">
+            <div class="toc-modal-header">
+                <h3>📋 Terms & Conditions</h3>
+                <p>Selamat datang di Renamerged! Silakan baca dan setujui syarat & ketentuan berikut sebelum menggunakan layanan kami.</p>
+            </div>
+
+            <div class="toc-modal-content">
+                <div class="toc-summary">
+                    <div class="toc-item">
+                        <h4>🔒 Privasi & Keamanan</h4>
+                        <p>File Anda otomatis dihapus setelah 1 jam. Kami tidak menyimpan data pribadi.</p>
+                    </div>
+
+                    <div class="toc-item">
+                        <h4>📁 Penggunaan Layanan</h4>
+                        <p>Layanan gratis, maksimal 200MB, hanya format ZIP berisi PDF.</p>
+                    </div>
+
+                    <div class="toc-item">
+                        <h4>⚠️ Tanggung Jawab</h4>
+                        <p>Backup file asli Anda. Kami tidak bertanggung jawab atas kehilangan data.</p>
+                    </div>
+
+                    <div class="toc-item">
+                        <h4>🚫 Larangan</h4>
+                        <p>Dilarang upload konten ilegal, spam, atau penggunaan komersial tanpa izin.</p>
+                    </div>
+                </div>
+
+                <div class="toc-footer">
+                    <p><strong>Dengan menggunakan layanan ini, Anda menyetujui seluruh syarat dan ketentuan yang berlaku.</strong></p>
+                    <a href="terms.html" target="_blank" class="read-full-link">📖 Baca Terms Lengkap</a>
+                </div>
+            </div>
+
+            <div class="toc-modal-actions">
+                <button class="toc-decline" id="tocDecline">Tidak Setuju</button>
+                <button class="toc-accept" id="tocAccept">Setuju & Lanjutkan</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="body-wrapper">
+        <div class="main-container">
+        <!-- Header -->
+        <h2 class="app-title">Renamerged</h2>
+
+        <div class="content-layout">
+            <!-- Left Section: Upload Area -->
+            <div class="upload-section">
+                <div class="card">
+                    <h3>📁 Upload File</h3>
+
+                    <div class="upload-content">
+                    <!-- Area Drag & Drop -->
+                <div id="dropzone" class="dropzone">
+                    <p id="dropzoneText">📂 Drag & Drop file ZIP di sini atau klik untuk memilih</p>
+                </div>
+                <input type="file" id="fileInput" style="display: none;">
+
+                <!-- Tombol Upload & Proses -->
+                <div class="upload-container">
+                    <button id="uploadButton">🚀 Upload & Proses</button>
+                </div>
+
+                <div class="progress-container">
+                    <div id="progressBar" class="progress-bar"></div>
+                </div>
+
+                <p id="estimatedTime">Estimasi selesai: -</p>
+
+                <!-- Log Box -->
+                <div class="log-box" id="logBox"></div>
+
+                <a id="downloadLink" href="#" style="display: none;">📥 Download File Result</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Section: Settings Menu -->
+            <div class="settings-section">
+                <div class="card">
+                    <h3>⚙️ Pengaturan</h3>
+
+                    <div class="settings-content">
+                    <!-- Mode Selection -->
+                <div class="mode-selection">
+                    <h4>Mode Proses:</h4>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="processMode" value="rename" id="modeRename">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">📝 Rename Saja</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="processMode" value="merge" id="modeMerge" checked>
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">📋 Rename + Merge</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Custom Filename Format (only for rename mode) -->
+                <div class="filename-format" id="filenameFormatSection" style="display: none;">
+                    <h4>🏷️ Format Nama File:</h4>
+
+                    <!-- Component Selection -->
+                    <div class="component-selection">
+                        <h5>Pilih Komponen:</h5>
+                        <div class="checkbox-group">
+                            <label class="checkbox-option">
+                                <input type="checkbox" id="enablePartner" checked>
+                                <span class="checkbox-custom"></span>
+                                <span class="checkbox-label">Nama Lawan Transaksi</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" id="enableDate" checked>
+                                <span class="checkbox-custom"></span>
+                                <span class="checkbox-label">Tanggal Faktur</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" id="enableReference" checked>
+                                <span class="checkbox-custom"></span>
+                                <span class="checkbox-label">Referensi</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" id="enableInvoice" checked>
+                                <span class="checkbox-custom"></span>
+                                <span class="checkbox-label">Nomor Faktur</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <p class="format-info">Drag komponen untuk mengatur urutan:</p>
+
+                    <div class="drag-container" id="dragContainer">
+                        <div class="drag-item" data-component="partner">
+                            <span class="drag-handle">⋮⋮</span>
+                            <span class="component-name">Nama Lawan Transaksi</span>
+                        </div>
+                        <div class="drag-item" data-component="date">
+                            <span class="drag-handle">⋮⋮</span>
+                            <span class="component-name">Tanggal Faktur</span>
+                        </div>
+                        <div class="drag-item" data-component="reference">
+                            <span class="drag-handle">⋮⋮</span>
+                            <span class="component-name">Referensi</span>
+                        </div>
+                        <div class="drag-item" data-component="invoice">
+                            <span class="drag-handle">⋮⋮</span>
+                            <span class="component-name">Nomor Faktur</span>
+                        </div>
+                    </div>
+
+                    <!-- Separator Settings -->
+                    <div class="separator-settings">
+                        <label for="separatorSelect">Pemisah:</label>
+                        <select id="separatorSelect">
+                            <option value=" - "> - (dash dengan spasi)</option>
+                            <option value="-">- (dash)</option>
+                            <option value=" _ "> _ (underscore dengan spasi)</option>
+                            <option value="_">_ (underscore)</option>
+                            <option value=" | "> | (pipe dengan spasi)</option>
+                            <option value="|">| (pipe)</option>
+                            <option value=" "> (spasi)</option>
+                            <option value="">tanpa pemisah</option>
+                        </select>
+                    </div>
+
+                    <!-- Character Replacement -->
+                    <div class="replacement-settings">
+                        <label for="slashReplacementSelect">Ganti "/" dengan:</label>
+                        <select id="slashReplacementSelect">
+                            <option value="_">_ (underscore)</option>
+                            <option value="-">- (dash)</option>
+                            <option value="">hapus "/" </option>
+                            <option value=" ">(spasi)</option>
+                            <option value=".">. (titik)</option>
+                        </select>
+                    </div>
+
+                    <!-- Preview -->
+                    <div class="preview-container">
+                        <h5>📋 Preview:</h5>
+                        <div class="filename-preview" id="filenamePreview">
+                            PT ABC - 09-10-2025 - INV251111 - 04002500141214002.pdf
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔽 Footer -->
+    <div class="footer">
+        <p class="copyright">&copy; 2025 iunox.id. All Rights Reserved. Designed & Developed by iunox.id.</p>
+    </div>
+
+    <!-- Load application modules -->
+    <script src="src/config/app.config.js"></script>
+    <script src="src/utils/dom.utils.js"></script>
+    <script src="src/components/toc.manager.js"></script>
+    <script src="src/components/socket.manager.js"></script>
+    <script src="src/components/progress.tracker.js"></script>
+    <script src="src/components/file.upload.js"></script>
+    <script src="src/components/settings.manager.js"></script>
+    <script src="src/components/theme.manager.js"></script>
+    <script src="src/components/sidebar.manager.js"></script>
+    <script src="src/app.js"></script>
+
+</body>
+</html>

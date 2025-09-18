@@ -1,0 +1,233 @@
+/* 🔘 Radio Buttons */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px; /* Reduced gap */
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 6px; /* Reduced padding */
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.radio-option:hover {
+    background-color: rgba(37, 117, 252, 0.1);
+}
+
+body.dark-mode .radio-option:hover {
+    background-color: rgba(100, 181, 246, 0.1);
+}
+
+.radio-option input[type="radio"] {
+    display: none;
+}
+
+.radio-custom {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #2575fc;
+    border-radius: 50%;
+    margin-right: 8px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.radio-option input[type="radio"]:checked + .radio-custom {
+    border-color: #2575fc;
+    background-color: #2575fc;
+}
+
+.radio-option input[type="radio"]:checked + .radio-custom::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.radio-label {
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+}
+
+body.dark-mode .radio-custom {
+    border-color: #64b5f6;
+}
+
+body.dark-mode .radio-option input[type="radio"]:checked + .radio-custom {
+    border-color: #64b5f6;
+    background-color: #64b5f6;
+}
+
+body.dark-mode .radio-label {
+    color: #e0e0e0;
+}
+
+/* ✅ Checkbox Styling */
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Reduced gap */
+    margin-bottom: 12px; /* Reduced margin */
+}
+
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 4px; /* Reduced padding */
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.checkbox-option:hover {
+    background-color: rgba(37, 117, 252, 0.1);
+}
+
+body.dark-mode .checkbox-option:hover {
+    background-color: rgba(100, 181, 246, 0.1);
+}
+
+.checkbox-option input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-custom {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #2575fc;
+    border-radius: 3px;
+    margin-right: 8px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.checkbox-option input[type="checkbox"]:checked + .checkbox-custom {
+    border-color: #2575fc;
+    background-color: #2575fc;
+}
+
+.checkbox-option input[type="checkbox"]:checked + .checkbox-custom::after {
+    content: '✓';
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.checkbox-label {
+    font-size: 14px;
+    color: #555;
+}
+
+body.dark-mode .checkbox-custom {
+    border-color: #64b5f6;
+}
+
+body.dark-mode .checkbox-option input[type="checkbox"]:checked + .checkbox-custom {
+    border-color: #64b5f6;
+    background-color: #64b5f6;
+}
+
+body.dark-mode .checkbox-label {
+    color: #e0e0e0;
+}
+
+/* 🎛️ Dropdowns */
+select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 2px solid #dee2e6;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #333;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+select:hover {
+    border-color: #2575fc;
+}
+
+select:focus {
+    outline: none;
+    border-color: #2575fc;
+    box-shadow: 0 0 8px rgba(37, 117, 252, 0.2);
+}
+
+body.dark-mode select {
+    background: #3a3a3a;
+    border-color: #555;
+    color: #e0e0e0;
+}
+
+body.dark-mode select:hover,
+body.dark-mode select:focus {
+    border-color: #64b5f6;
+    box-shadow: 0 0 8px rgba(100, 181, 246, 0.2);
+}
+
+/* 📝 Form Labels */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+body.dark-mode label {
+    color: #e0e0e0;
+}
+
+/* 📋 Form Sections */
+.mode-selection {
+    margin-bottom: 15px; /* Reduced margin */
+    padding: 12px; /* Reduced padding */
+    border: 2px solid #adb5bd; /* Softer border for light mode */
+    border-radius: 8px;
+    background: #f8f9fa;
+    display: block !important; /* Force visible */
+    visibility: visible !important; /* Force visible */
+    transition: all 0.3s ease-in-out; /* Smooth transitions */
+}
+
+.mode-selection h4 {
+    margin-top: 0;
+    margin-bottom: 10px; /* Reduced margin */
+    color: #2575fc;
+    font-size: 16px;
+}
+
+body.dark-mode .mode-selection {
+    background: #2a2a2a;
+    border-color: #555;
+}
+
+body.dark-mode .mode-selection h4 {
+    color: #64b5f6;
+}
+
+.separator-settings,
+.replacement-settings {
+    margin-bottom: 15px;
+}
+
+.separator-settings label,
+.replacement-settings label {
+    margin-bottom: 5px;
+    display: block;
+}

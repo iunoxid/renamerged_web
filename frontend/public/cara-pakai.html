@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cara Pakai - Renamerged</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/cara-pakai.css">
+</head>
+<body>
+
+    <!-- 🌙 Dark Mode Switch -->
+    <div class="dark-mode-toggle">
+        <span id="lightText">Light</span>
+        <label class="switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider round"></span>
+        </label>
+        <span id="darkText">Dark</span>
+    </div>
+
+    <!-- 🔙 Back Button -->
+    <div class="back-button">
+        <button id="backBtn" onclick="window.close()">
+            ← Kembali
+        </button>
+    </div>
+
+    <div class="body-wrapper">
+        <div class="main-container" style="text-align: left; max-width: 1200px; margin-top: 60px;">
+            <!-- Header -->
+            <h1 class="page-title" style="text-align: center;">Cara Pakai Renamerged</h1>
+
+            <!-- Mode Selection Guide -->
+            <div class="guide-section">
+                <h2>Pilih Mode Proses</h2>
+                <div class="mode-cards">
+                    <div class="mode-card">
+                        <h3>Mode Rename Saja</h3>
+                        <p><strong>Gunakan jika:</strong> Anda hanya ingin mengganti nama file PDF tanpa menggabungkannya.</p>
+                        <ul>
+                            <li>File akan diganti nama sesuai format yang Anda pilih</li>
+                            <li>File tetap terpisah berdasarkan IDTKU</li>
+                            <li>Cocok untuk arsip atau organizasi file</li>
+                        </ul>
+                    </div>
+                    <div class="mode-card">
+                        <h3>Mode Rename + Merge</h3>
+                        <p><strong>Gunakan jika:</strong> Anda ingin mengganti nama dan menggabungkan PDF dengan partner yang sama.</p>
+                        <ul>
+                            <li>File dengan partner sama akan digabung jadi satu</li>
+                            <li>Menghemat ruang penyimpanan</li>
+                            <li>Cocok untuk laporan bulanan atau tahunan</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step by Step Guide -->
+            <div class="guide-section">
+                <h2>Langkah-Langkah Penggunaan</h2>
+
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Persiapkan File</h3>
+                            <p>Kumpulkan semua PDF faktur pajak yang ingin diproses ke dalam satu folder, lalu compress menjadi file <strong>ZIP</strong>.</p>
+                            <div class="note">
+                                <strong>⚠️ Penting:</strong> Saat ini hanya mendukung format ZIP, belum RAR atau 7Z.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Pilih Mode & Pengaturan</h3>
+                            <p>Pilih mode proses yang sesuai kebutuhan Anda:</p>
+                            <ul>
+                                <li><strong>Rename Saja:</strong> Konfigurasikan format nama file di panel pengaturan</li>
+                                <li><strong>Rename + Merge:</strong> Mode ini menggunakan format default</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Upload File ZIP</h3>
+                            <p>Drag & drop file ZIP ke area upload atau klik untuk memilih file. Sistem akan mendeteksi jumlah PDF secara otomatis.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Proses & Monitor</h3>
+                            <p>Klik tombol "Upload & Proses" dan pantau progress secara real-time di log box. Estimasi waktu akan ditampilkan otomatis.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>Download Hasil</h3>
+                            <p>Setelah proses selesai, akan muncul summary hasil dan link download. File hasil sudah diorganisir sesuai IDTKU.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Custom Format Guide (Rename Mode) -->
+            <div class="guide-section">
+                <h2>Pengaturan Format Nama File (Mode Rename)</h2>
+
+                <div class="format-guide">
+                    <h3>Komponen Nama File</h3>
+                    <div class="component-list">
+                        <div class="component-item">
+                            <span class="component-name">Nama Lawan Transaksi</span>
+                            <span class="component-desc">Nama perusahaan dari PDF</span>
+                        </div>
+                        <div class="component-item">
+                            <span class="component-name">Tanggal Faktur</span>
+                            <span class="component-desc">Tanggal dari dokumen PDF</span>
+                        </div>
+                        <div class="component-item">
+                            <span class="component-name">Referensi</span>
+                            <span class="component-desc">Nomor referensi dokumen</span>
+                        </div>
+                        <div class="component-item">
+                            <span class="component-name">Nomor Faktur</span>
+                            <span class="component-desc">Nomor faktur dari PDF</span>
+                        </div>
+                    </div>
+
+                    <h3>Cara Mengatur Format</h3>
+                    <ol>
+                        <li>Centang komponen yang ingin disertakan</li>
+                        <li>Drag & drop untuk mengatur urutan komponen</li>
+                        <li>Pilih pemisah antar komponen (-, _, |, dll)</li>
+                        <li>Pilih pengganti karakter "/" jika ada</li>
+                        <li>Lihat preview nama file di bawah pengaturan</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Tips & Troubleshooting -->
+            <div class="guide-section">
+                <h2>Tips & Troubleshooting</h2>
+
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h3>Performance Tips</h3>
+                        <ul>
+                            <li>File ZIP sebaiknya tidak lebih dari 200MB</li>
+                            <li>Pastikan koneksi internet stabil</li>
+                            <li>Jangan tutup browser saat proses berjalan</li>
+                        </ul>
+                    </div>
+
+                    <div class="tip-card">
+                        <h3>Troubleshooting</h3>
+                        <ul>
+                            <li><strong>File tidak terdeteksi:</strong> Pastikan file berformat PDF dan dalam folder ZIP</li>
+                            <li><strong>Progress terhenti:</strong> Refresh halaman dan coba lagi</li>
+                            <li><strong>Download gagal:</strong> Cek koneksi internet dan coba download ulang</li>
+                        </ul>
+                    </div>
+
+                    <div class="tip-card">
+                        <h3>Best Practices</h3>
+                        <ul>
+                            <li>Gunakan nama file PDF yang jelas sebelum upload</li>
+                            <li>Pastikan PDF tidak corrupt atau password protected</li>
+                            <li>Backup file asli sebelum proses</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ -->
+            <div class="guide-section">
+                <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3>Q: Apakah file saya aman?</h3>
+                        <p>A: Ya, file akan otomatis dihapus dari server setelah 1 jam. Kami tidak menyimpan data Anda.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Q: Kenapa hanya mendukung ZIP?</h3>
+                        <p>A: Saat ini fokus pada format ZIP untuk stabilitas. Support RAR dan 7Z akan ditambahkan di update mendatang.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Q: Berapa maksimal file yang bisa diproses?</h3>
+                        <p>A: Maksimal 200MB per ZIP. Jumlah file PDF tidak dibatasi selama total ukuran tidak melebihi limit.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>Q: Bagaimana jika ada error saat proses?</h3>
+                        <p>A: Error akan ditampilkan di log box. File yang berhasil tetap bisa didownload, yang error akan dilewati.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+
+        <p class="copyright">&copy; 2025 iunox.id. All Rights Reserved. Designed & Developed by iunox.id.</p>
+    </div>
+
+    <!-- Load theme manager for dark mode -->
+    <script src="src/components/theme.manager.js"></script>
+
+</body>
+</html>
