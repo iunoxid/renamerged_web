@@ -87,7 +87,7 @@ renamerged_web/
 
 1. Clone repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/iunoxid/renamerged_web
 cd renamerged_web
 ```
 
