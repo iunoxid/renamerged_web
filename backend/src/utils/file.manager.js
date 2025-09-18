@@ -19,14 +19,29 @@ class FileManager {
         }
     }
 
-    static extractZip(zipPath, extractPath) {
+    static extractZip(zipPath, extractPath, emitToClient = null) {
         try {
             fs.mkdirSync(extractPath, { recursive: true });
 
             const zip = new AdmZip(zipPath);
+            const entries = zip.getEntries();
+
+            // Count PDF files
+            const pdfCount = entries.filter(entry =>
+                !entry.isDirectory && entry.name.toLowerCase().endsWith('.pdf')
+            ).length;
+
+            if (emitToClient) {
+                emitToClient("log", {
+                    message: `📊 PDF Files detected: ${pdfCount} files`
+                });
+            }
+            console.log(`📊 PDF Files detected: ${pdfCount} files`);
+
             zip.extractAllTo(extractPath, true);
 
             console.log(`✅ ZIP extracted to: ${extractPath}`);
+            return { pdfCount };
         } catch (error) {
             console.error(`❌ Error extracting ZIP:`, error.message);
             throw new Error(`Failed to extract ZIP: ${error.message}`);

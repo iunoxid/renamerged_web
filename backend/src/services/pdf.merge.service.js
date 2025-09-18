@@ -18,14 +18,13 @@ class PDFMergeService {
             // Check file size and add delay for small files
             await this.handleFileSize(zipPath, emitToClient);
 
-            // Extract ZIP
-            FileManager.extractZip(zipPath, extractPath);
+            // Extract ZIP and count PDFs
+            const extractResult = FileManager.extractZip(zipPath, extractPath, emitToClient);
 
             // Get PDF files
             const pdfFiles = FileManager.getPDFFiles(extractPath);
 
             emitToClient("log", { message: "📂 Starting merge processing..." });
-            emitToClient("log", { message: `📄 Found ${pdfFiles.length} PDF files` });
 
             console.log(`📂 Starting merge processing...`);
             console.log(`📄 Total files found: ${pdfFiles.length}`);

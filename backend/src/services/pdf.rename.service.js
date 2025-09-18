@@ -17,14 +17,13 @@ class PDFRenameService {
             // Check file size and add delay for small files
             await this.handleFileSize(zipPath, emitToClient);
 
-            // Extract ZIP
-            FileManager.extractZip(zipPath, extractPath);
+            // Extract ZIP and count PDFs
+            const extractResult = FileManager.extractZip(zipPath, extractPath, emitToClient);
 
             // Get PDF files
             const pdfFiles = FileManager.getPDFFiles(extractPath);
 
             emitToClient("log", { message: "📂 Starting rename-only processing..." });
-            emitToClient("log", { message: `📄 Found ${pdfFiles.length} PDF files` });
 
             console.log(`📂 Starting rename-only processing...`);
             console.log(`📄 Total files found: ${pdfFiles.length}`);
@@ -35,8 +34,12 @@ class PDFRenameService {
             }
 
             // Process each PDF with rename only
-            await this.processRenameOnly(pdfFiles, outputDir, emitToClient, settings);
+            const result = await this.processRenameOnly(pdfFiles, outputDir, emitToClient, settings);
 
+            // Show results summary
+            emitToClient("log", {
+                message: `📊 Results: ✅ ${result.successful} successful, ❌ ${result.failed} failed`
+            });
             emitToClient("log", { message: "✅ Rename processing completed!" });
             return FileManager.createZipFromFolder(outputDir);
 
@@ -62,6 +65,8 @@ class PDFRenameService {
         emitToClient("log", { message: "📝 Processing in rename-only mode..." });
 
         let processedFiles = 0;
+        let successfulFiles = 0;
+        let failedFiles = 0;
         const totalFiles = pdfFiles.length;
 
         for (const pdfPath of pdfFiles) {
@@ -89,6 +94,7 @@ class PDFRenameService {
                 const finalFilename = path.basename(finalDestinationPath);
                 emitToClient("log", { message: `✅ Renamed: ${path.basename(pdfPath)} → ${finalFilename}` });
 
+                successfulFiles++;
                 processedFiles++;
                 const progress = Math.floor((processedFiles / totalFiles) * 95);
                 emitToClient("progress", { percent: progress });
@@ -102,6 +108,7 @@ class PDFRenameService {
                 console.error(`❌ Error processing ${pdfPath}:`, error.message);
                 emitToClient("log", { message: `❌ Error processing ${path.basename(pdfPath)}: ${error.message}` });
 
+                failedFiles++;
                 processedFiles++;
                 const progress = Math.floor((processedFiles / totalFiles) * 95);
                 emitToClient("progress", { percent: progress });
@@ -110,6 +117,12 @@ class PDFRenameService {
 
         emitToClient("log", { message: "📦 Creating final archive..." });
         emitToClient("progress", { percent: 98 });
+
+        return {
+            successful: successfulFiles,
+            failed: failedFiles,
+            total: totalFiles
+        };
     }
 
     static generateCustomFilename(partnerName, date, reference, invoiceNumber, settings) {
